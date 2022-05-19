@@ -1,0 +1,157 @@
+<!doctype html>
+<html><head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
+body {
+  margin: 0;
+  font-family: "Josefin Sans";
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #FA9C14;
+  color: white;
+}
+
+table {
+  border-color: #FA9C14;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <a href="{{ url_for('main') }}">Doctors</a>
+  <a href="{{ url_for('patients') }}">Patients</a>
+  <a href="{{ url_for('drugs') }}">Drugs</a>
+  <a href="{{ url_for('pharmacies') }}">Pharmacies</a>
+  <a class="active" href="{{ url_for('prescribe') }}">Prescribe Medicine</a>
+  <a href="{{ url_for('select_location') }}">Nearby Pharmacies</a>
+</div>
+
+<div style="padding-left:16px">
+</div>
+
+</body>
+   <body>
+   <h1>{{ cc }}</h1>
+    <table border=0 cellpadding=15 cellspacing=10>
+	  </tr>
+	  
+	  <td>
+	   <table border=3 cellpadding=10 cellspacing=8>
+         <thead>
+            <td>Patient ID</td>
+            <td>Doctor ID</td>
+			<td>Medicine ID</td>
+	    <td>Date</td>
+		<td>Description</td>
+	    
+
+         </thead>
+         
+         {% for row in rows5 %}
+            <tr>
+               <td>{{ row[0] }}</td>
+               <td>{{ row[1] }}</td>
+	       <td>{{ row[2] }}</td>
+	       <td>{{ row[3] }}</td>
+		   <td>{{ row[4] }}</td>
+
+            </tr>
+         {% endfor %}
+      </table>
+	<h1></h1>
+	  
+	  <tr><td>	 
+	  
+	  {% if error %}  
+        <p style="color:red;"><strong>Error</strong>: {{error}}</p>  
+	{% endif %}  
+	  
+	   <form action="{{ url_for('prescribe2') }}" method="POST">
+	   
+
+        <label for="patients">Choose a Patient:</label>
+  <select id="patients" name="patients" onchange='this.form.submit()'>
+    {% for patient in patients %}
+	<OPTION value={{patient[0]}}>{{patient}}</OPTION>
+	{% endfor %}
+</SELECT>
+  </select>
+  <div id = "ifselected">
+		{% if scroll %}
+		<script>
+			document.getElementById('{{ scroll }}').scrollIntoView();
+			// or
+		</script>
+		{% endif %}
+		</div>
+  <h1></h1>
+		
+		<h1></h1>
+        <label for="doctors">Choose a Doctor:</label>
+  <select id="doctors" name="doctors">
+    {% for doctor in doctors %}
+	<OPTION value={{doctor[0]}}>{{doctor}}</OPTION>
+	{% endfor %}
+</SELECT>
+  </select>
+  <h1></h1>
+  
+  <label for="medicines">Choose a Medicine:</label>
+  <select id="medicines" name="medicines">
+    {% for medicine in medicines %}
+	<OPTION value={{medicine[0]}}>{{medicine}}</OPTION>
+	{% endfor %}
+</SELECT>
+  </select>
+  <h1></h1>
+		
+		<br>  Enter Date: <br>
+		
+		<input type="date" name="date" required><br><br>
+		
+		<br>  Enter Description (Optional): <br>
+		
+		<textarea id="description" name="description" rows="4" cols="50">
+		</textarea>
+		<h1></h1>
+		<div id = "iferroroccured">
+		{% if scroll %}
+		<script>
+			document.getElementById('{{ scroll }}').scrollIntoView();
+			// or
+		</script>
+		{% endif %}
+		</div>
+		
+        <button type="submit" value="Submit" name="Submit" onclick="{{ url_for('enterprescription') }}">Submit</button>
+</form> 
+		</td>
+
+	  </table>
+	  
+   </body>
+</html>

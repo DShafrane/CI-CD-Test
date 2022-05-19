@@ -1,0 +1,87 @@
+<!doctype html>
+<html><head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <a href="{{ url_for('main') }}">Doctors</a>
+  <a href="{{ url_for('patients') }}">Patients</a>
+  <a href="{{ url_for('drugs') }}">Drugs</a>
+  <a href="{{ url_for('pharmacies') }}">Pharmacies</a>
+  <a class="active" href="{{ url_for('select_doctor') }}">Find a Doctor</a>
+  <a href="{{ url_for('select_patient') }}">Find a Patient</a>
+</div>
+
+<div style="padding-left:16px">
+</div>
+
+</body>
+   <body>
+   <h1>{{ cc }}</h1>
+    <table border=15 cellpadding=15 cellspacing=10>
+	<tr>
+<tr><td>	 
+	   <form action="{{ url_for('select_doctor') }}" method="POST">
+      <br>  Enter a Doctor ID: <br>
+      
+        <input type="text" name="docid"><br>
+      
+    
+        <input type="submit" value="Submit ID">
+</form> 
+		</td>
+		<td>
+	  <ul>
+       <li>  Total Number of patients: {{ numall }}</li><br>
+	   <li>Doctor is: {{ doct }} and he/she has {{ num }} patients </li>
+	   <li>They are {{ pat }}</li>
+	   <li>ALL his/her prescribed drugs are: {{ drugsall }} </li>
+       
+	   <li>Pharmacies supervised are: {{ pharm }}</li>
+       
+	</ul>
+       
+	  </td>
+		
+		
+</tr>
+
+
+	  </table>
+	  
+	  	   <a href="{{ url_for('main') }}">Go Back</a>
+	  
+     
+   </body>
+</html>

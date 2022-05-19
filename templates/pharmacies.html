@@ -1,0 +1,130 @@
+<!doctype html>
+<html><head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
+body {
+  margin: 0;
+  font-family: "Josefin Sans";
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #FA9C14;
+  color: white;
+}
+table {
+  border-color: #FA9C14;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <a href="{{ url_for('main') }}">Doctors</a>
+  <a href="{{ url_for('patients') }}">Patients</a>
+  <a href="{{ url_for('drugs') }}">Drugs</a>
+  <a class="active" href="{{ url_for('pharmacies') }}">Pharmacies</a>
+  <a href="{{ url_for('prescribe') }}">Prescribe Medicine</a>
+  <a href="{{ url_for('select_location') }}">Nearby Pharmacies</a>
+</div>
+
+<div style="padding-left:16px">
+</div>
+
+</body>
+   <body>
+   <h1>{{ cc }}</h1>
+    <table border=0 cellpadding=15 cellspacing=10>
+	  </tr>
+	  
+	  <tr>
+	  </td>
+	  <td>
+	   <table border=3 cellpadding=10 cellspacing=8>
+         <thead>
+            <td>Pharmacy ID</td>
+            <td>Pharmacy Name</td>
+			<td>Pharmacy Location</td>
+	    <td>Doctor ID</td>
+	    
+
+         </thead>
+         
+         {% for row in rows4 %}
+            <tr>
+               <td>{{ row[0] }}</td>
+               <td>{{ row[1] }}</td>
+	       <td>{{ row[2] }}</td>
+	       <td>{{ row[3] }}</td>
+
+            </tr>
+         {% endfor %}
+      </table>
+	  </td>
+	  </tr>
+	  
+	  <tr><td>	 
+	  <h1> Insert A New Pharmacy </h1>
+	  
+	  {% if error %}  
+        <p style="color:red;"><strong>Error</strong>: {{error}}</p>  
+	{% endif %}  
+	  
+	   <form action="{{ url_for('enterpharmacy') }}" method="POST">
+      <br>  Enter Pharmacy ID: <br>
+      
+        <input type="text" name="pharmacyid" required><br>
+		
+		<br>  Enter Pharmacy Name: <br>
+      
+        <input type="text" name="pharmacyname" required><br>
+		
+		<br>  Enter Pharmacy Location (Optional): <br>
+      
+        <input type="text" name="pharmacyaddress"><br>
+		<h1></h1>
+  <label for="doctors">Choose a supervisor doctor:</label>
+  <select id="doctors" name="doctors">
+    {% for doctor in doctors %}
+	<OPTION value={{doctor[0]}}>{{doctor}}</OPTION>
+	{% endfor %}
+</SELECT>
+  </select>
+  <h1></h1>
+    <div id = "iferroroccured">
+		{% if scroll %}
+		<script>
+			document.getElementById('{{ scroll }}').scrollIntoView();
+			// or
+		</script>
+		{% endif %}
+		</div>
+        <input type="submit" value="Submit">
+</form> 
+		</td>
+
+	  </table>
+	  
+   </body>
+</html>
