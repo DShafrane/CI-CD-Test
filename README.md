@@ -4,6 +4,8 @@
 
 Provide a database web app with PostgreSQL and using Python for web development.
 
+The web app is also deployed using Heroku.
+
 # You can try it out here!
 
 https://pharmacies-chain.herokuapp.com/
