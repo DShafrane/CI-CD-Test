@@ -2,7 +2,7 @@
 
 # Description
 
-Provide a database web app with PostgreSQL and using Python for web development.
+Provided a database web app with PostgreSQL and using Python (Flask) for web development.
 
 The web app is also deployed using Heroku.
 
