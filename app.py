@@ -11,8 +11,8 @@ from flask import render_template
 from flask import request, url_for, flash, redirect
 
 conn = psycopg2.connect( 
-        database="dfdaplk1cts6r", user='zbukkmhqyxcmpi', 
-        password='4bf4d83a2d943e285e6da4c72ba7e4a21b7abbfdebcc6bbafa6612a6ddb61388', host='ec2-44-195-169-163.compute-1.amazonaws.com', port= '5432')
+        database="Pharmacies-Chain", user='hello_flask', 
+        password='hello_flask', host='127.0.0.1', port= '5432')
 
 cursor = conn.cursor() 
     
@@ -22,8 +22,8 @@ app = Flask(__name__)
 @app.route("/", methods=['GET', 'POST'])
 def main():
     conn = psycopg2.connect( 
-        database="dfdaplk1cts6r", user='zbukkmhqyxcmpi', 
-        password='4bf4d83a2d943e285e6da4c72ba7e4a21b7abbfdebcc6bbafa6612a6ddb61388', host='ec2-44-195-169-163.compute-1.amazonaws.com', port= '5432')
+        database="Pharmacies-Chain", user='hello_flask', 
+        password='hello_flask', host='127.0.0.1', port= '5432')
     cc = "Doctors"
     error = None
     cursor = conn.cursor() 
@@ -110,8 +110,8 @@ def main():
 @app.route("/enterdoctor/", methods=['GET', 'POST'])
 def enterdoctor():
     conn = psycopg2.connect( 
-        database="dfdaplk1cts6r", user='zbukkmhqyxcmpi', 
-        password='4bf4d83a2d943e285e6da4c72ba7e4a21b7abbfdebcc6bbafa6612a6ddb61388', host='ec2-44-195-169-163.compute-1.amazonaws.com', port= '5432')
+        database="Pharmacies-Chain", user='hello_flask', 
+        password='hello_flask', host='127.0.0.1', port= '5432')
     cursor = conn.cursor()
     doctorid = request.form.get('doctorid')
     doctorname = request.form.get('doctorname')
@@ -167,8 +167,8 @@ def enterdoctor():
 @app.route("/patients/", methods=['GET', 'POST'])
 def patients():
     conn = psycopg2.connect( 
-        database="dfdaplk1cts6r", user='zbukkmhqyxcmpi', 
-        password='4bf4d83a2d943e285e6da4c72ba7e4a21b7abbfdebcc6bbafa6612a6ddb61388', host='ec2-44-195-169-163.compute-1.amazonaws.com', port= '5432')
+        database="Pharmacies-Chain", user='hello_flask', 
+        password='hello_flask', host='127.0.0.1', port= '5432')
     cc = "Patients"
     cursor = conn.cursor() 
     try:
@@ -232,8 +232,8 @@ def patients():
 @app.route("/enterpatient/", methods=['GET', 'POST'])
 def enterpatient():
     conn = psycopg2.connect( 
-        database="dfdaplk1cts6r", user='zbukkmhqyxcmpi', 
-        password='4bf4d83a2d943e285e6da4c72ba7e4a21b7abbfdebcc6bbafa6612a6ddb61388', host='ec2-44-195-169-163.compute-1.amazonaws.com', port= '5432')
+        database="Pharmacies-Chain", user='hello_flask', 
+        password='hello_flask', host='127.0.0.1', port= '5432')
     cursor = conn.cursor()
     error = None
     patiid = request.form.get('patientid')
@@ -348,8 +348,8 @@ def enterpatient():
 @app.route("/enterpharmacy/", methods=['GET', 'POST'])
 def enterpharmacy():
     conn = psycopg2.connect( 
-        database="dfdaplk1cts6r", user='zbukkmhqyxcmpi', 
-        password='4bf4d83a2d943e285e6da4c72ba7e4a21b7abbfdebcc6bbafa6612a6ddb61388', host='ec2-44-195-169-163.compute-1.amazonaws.com', port= '5432')
+        database="Pharmacies-Chain", user='hello_flask', 
+        password='hello_flask', host='127.0.0.1', port= '5432')
     cursor = conn.cursor()
     
     cursor.execute("select d_id, name from doctors")
@@ -404,8 +404,8 @@ def enterpharmacy():
 @app.route("/prescribe/", methods=['GET', 'POST'])
 def prescribe():
     conn = psycopg2.connect( 
-        database="dfdaplk1cts6r", user='zbukkmhqyxcmpi', 
-        password='4bf4d83a2d943e285e6da4c72ba7e4a21b7abbfdebcc6bbafa6612a6ddb61388', host='ec2-44-195-169-163.compute-1.amazonaws.com', port= '5432')
+        database="Pharmacies-Chain", user='hello_flask', 
+        password='hello_flask', host='127.0.0.1', port= '5432')
     cc = "Prescribe Medicine"
     cursor = conn.cursor()
     
@@ -440,8 +440,8 @@ def prescribe():
 @app.route("/prescribe2/", methods=['GET', 'POST'])
 def prescribe2():
     conn = psycopg2.connect( 
-        database="dfdaplk1cts6r", user='zbukkmhqyxcmpi', 
-        password='4bf4d83a2d943e285e6da4c72ba7e4a21b7abbfdebcc6bbafa6612a6ddb61388', host='ec2-44-195-169-163.compute-1.amazonaws.com', port= '5432')
+        database="Pharmacies-Chain", user='hello_flask', 
+        password='hello_flask', host='127.0.0.1', port= '5432')
     cc = "Prescribe Medicine"
     cursor = conn.cursor()
     patidd = request.form.get('patients')
@@ -525,8 +525,8 @@ def prescribe2():
 @app.route("/enterprescription/", methods=['GET', 'POST'])
 def enterprescription():
     conn = psycopg2.connect( 
-        database="dfdaplk1cts6r", user='zbukkmhqyxcmpi', 
-        password='4bf4d83a2d943e285e6da4c72ba7e4a21b7abbfdebcc6bbafa6612a6ddb61388', host='ec2-44-195-169-163.compute-1.amazonaws.com', port= '5432')
+        database="Pharmacies-Chain", user='hello_flask', 
+        password='hello_flask', host='127.0.0.1', port= '5432')
     cursor = conn.cursor()
     
     medid = request.form.get('medicines')
@@ -592,8 +592,8 @@ def enterprescription():
 @app.route("/drugs/")
 def drugs():
     conn = psycopg2.connect( 
-        database="dfdaplk1cts6r", user='zbukkmhqyxcmpi', 
-        password='4bf4d83a2d943e285e6da4c72ba7e4a21b7abbfdebcc6bbafa6612a6ddb61388', host='ec2-44-195-169-163.compute-1.amazonaws.com', port= '5432')
+        database="Pharmacies-Chain", user='hello_flask', 
+        password='hello_flask', host='127.0.0.1', port= '5432')
     cc = "Drugs Prescribed"
     cursor = conn.cursor() 
     try:
@@ -619,8 +619,8 @@ def drugs():
 @app.route("/pharmacies/")
 def pharmacies():
     conn = psycopg2.connect( 
-        database="dfdaplk1cts6r", user='zbukkmhqyxcmpi', 
-        password='4bf4d83a2d943e285e6da4c72ba7e4a21b7abbfdebcc6bbafa6612a6ddb61388', host='ec2-44-195-169-163.compute-1.amazonaws.com', port= '5432')
+        database="Pharmacies-Chain", user='hello_flask', 
+        password='hello_flask', host='127.0.0.1', port= '5432')
     cc = "Pharmacies"
     cursor = conn.cursor() 
     try:
@@ -738,8 +738,8 @@ def select_patient():
 @app.route('/select_location/', methods=['GET', 'POST'])
 def select_location():
     conn = psycopg2.connect( 
-        database="dfdaplk1cts6r", user='zbukkmhqyxcmpi', 
-        password='4bf4d83a2d943e285e6da4c72ba7e4a21b7abbfdebcc6bbafa6612a6ddb61388', host='ec2-44-195-169-163.compute-1.amazonaws.com', port= '5432')
+        database="Pharmacies-Chain", user='hello_flask', 
+        password='hello_flask', host='127.0.0.1', port= '5432')
     cc = 'Nearby Pharmacies'
     locname = request.form.get('loc')
     
