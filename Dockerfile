@@ -5,12 +5,16 @@ RUN apk update \
     && apk add postgresql-dev && \
     apk add netcat-openbsd
 
+ENV FLASK_APP=app.py
+ENV FLASK_RUN_HOST=0.0.0.0
+
 COPY . /usr/src/app/
-WORKDIR /usr/src/app
+WORKDIR /usr/src/app/
 
 RUN pip install --upgrade pip
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install -r /tmp/requirements.txt
 
+EXPOSE 5000
 
-ENTRYPOINT FLASK_APP=/usr/src/app/app.py flask run --host=0.0.0.0 --port=8080
+CMD ["flask", "run"]
