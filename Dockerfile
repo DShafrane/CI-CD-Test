@@ -8,16 +8,18 @@ RUN apk update \
     && apk add postgresql-dev && \
     apk add netcat-openbsd
 
-ENV FLASK_APP="app.py"
 ENV FLASK_RUN_HOST="0.0.0.0"
-ENV FLASK_ENV="docker"
+ENV FLASK_APP="/usr/src/app/app.py"
+ENV FLASK_ENV="development"
+ENV FLASK_RUN_PORT="8000"
 
-RUN mkdir -p /usr/src/app
+RUN mkdir /usr/src/app/
 COPY . /usr/src/app/
-WORKDIR /usr/src/app/
 
 RUN pip install --upgrade pip
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install -r /tmp/requirements.txt
+
+WORKDIR /usr/src/app/
 
 CMD ["flask", "run"]

@@ -1,13 +1,3 @@
-drop table sell;
-drop table primary_physician;
-drop table prescribe;
-drop table pharmacy;
-drop table drugs;
-drop table patientsanddoctors;
-drop table patients;
-drop table doctors;
-
-
 create table Patients(
 	P_ID VARCHAR(10) NOT NULL,
 	Name VARCHAR(40) NOT NULL,

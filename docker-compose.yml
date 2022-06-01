@@ -27,7 +27,6 @@ services:
       POSTGRES_DB: Pharmacies-Chain
     volumes: 
       - ./SQL_Part2.txt:/docker-entrypoint-initdb.d/init.sql
-      - postgresDB:/var/lib/postgresql/data
   proxy:
     build: nginx
     container_name: Nginx
@@ -36,7 +35,3 @@ services:
       - 10000:10000
     depends_on:
       - app
-
-
-volumes:
-  postgresDB:
