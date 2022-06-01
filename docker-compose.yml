@@ -4,10 +4,6 @@ services:
   app:
     build: .
     container_name: Flask
-    environment:
-      - DATABASE_URL=db://hello_flask:hello_flask@db:5432/Pharmacies-Chain
-      - SQLALCHEMY_DATABASE_URI=postgresql://hello_flask:hello_flask@db:5432/Pharmacies-Chain
-      - SQLALCHEMY_TRACK_MODIFICATIONS = False
     ports:
       - 8000:8000
     links:
