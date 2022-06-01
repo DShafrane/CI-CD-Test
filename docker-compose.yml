@@ -6,7 +6,7 @@ services:
     container_name: Flask
     #command: gunicorn --bind 0.0.0.0:5000 app:app
     environment:
-      - DATABASE_URL=postgresql://hello_flask:hello_flask@db:5432/Pharmacies-Chain
+      - DATABASE_URL=db://hello_flask:hello_flask@db:5432/Pharmacies-Chain
       - SQLALCHEMY_DATABASE_URI=postgresql://hello_flask:hello_flask@db:5432/Pharmacies-Chain
       - SQLALCHEMY_TRACK_MODIFICATIONS = False
     volumes:
@@ -27,6 +27,8 @@ services:
       POSTGRES_DB: Pharmacies-Chain
     volumes: 
       - ./SQL_Part2.txt:/docker-entrypoint-initdb.d/init.sql
+    expose:
+      - "5432"
   proxy:
     build: nginx
     container_name: Nginx

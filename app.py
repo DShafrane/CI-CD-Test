@@ -12,7 +12,7 @@ from flask import request, url_for, flash, redirect
 
 conn = psycopg2.connect( 
         database="Pharmacies-Chain", user='hello_flask', 
-        password='hello_flask', host='127.0.0.1', port= '5432')
+        password='hello_flask', host='Postgres', port= '5432')
 
 cursor = conn.cursor() 
     
@@ -23,7 +23,7 @@ app = Flask(__name__)
 def main():
     conn = psycopg2.connect( 
         database="Pharmacies-Chain", user='hello_flask', 
-        password='hello_flask', host='127.0.0.1', port= '5432')
+        password='hello_flask', host='Postgres', port= '5432')
     cc = "Doctors"
     error = None
     cursor = conn.cursor() 
@@ -111,7 +111,7 @@ def main():
 def enterdoctor():
     conn = psycopg2.connect( 
         database="Pharmacies-Chain", user='hello_flask', 
-        password='hello_flask', host='127.0.0.1', port= '5432')
+        password='hello_flask', host='Postgres', port= '5432')
     cursor = conn.cursor()
     doctorid = request.form.get('doctorid')
     doctorname = request.form.get('doctorname')
@@ -168,7 +168,7 @@ def enterdoctor():
 def patients():
     conn = psycopg2.connect( 
         database="Pharmacies-Chain", user='hello_flask', 
-        password='hello_flask', host='127.0.0.1', port= '5432')
+        password='hello_flask', host='Postgres', port= '5432')
     cc = "Patients"
     cursor = conn.cursor() 
     try:
@@ -233,7 +233,7 @@ def patients():
 def enterpatient():
     conn = psycopg2.connect( 
         database="Pharmacies-Chain", user='hello_flask', 
-        password='hello_flask', host='127.0.0.1', port= '5432')
+        password='hello_flask', host='Postgres', port= '5432')
     cursor = conn.cursor()
     error = None
     patiid = request.form.get('patientid')
@@ -349,7 +349,7 @@ def enterpatient():
 def enterpharmacy():
     conn = psycopg2.connect( 
         database="Pharmacies-Chain", user='hello_flask', 
-        password='hello_flask', host='127.0.0.1', port= '5432')
+        password='hello_flask', host='Postgres', port= '5432')
     cursor = conn.cursor()
     
     cursor.execute("select d_id, name from doctors")
@@ -405,7 +405,7 @@ def enterpharmacy():
 def prescribe():
     conn = psycopg2.connect( 
         database="Pharmacies-Chain", user='hello_flask', 
-        password='hello_flask', host='127.0.0.1', port= '5432')
+        password='hello_flask', host='Postgres', port= '5432')
     cc = "Prescribe Medicine"
     cursor = conn.cursor()
     
@@ -441,7 +441,7 @@ def prescribe():
 def prescribe2():
     conn = psycopg2.connect( 
         database="Pharmacies-Chain", user='hello_flask', 
-        password='hello_flask', host='127.0.0.1', port= '5432')
+        password='hello_flask', host='Postgres', port= '5432')
     cc = "Prescribe Medicine"
     cursor = conn.cursor()
     patidd = request.form.get('patients')
@@ -526,7 +526,7 @@ def prescribe2():
 def enterprescription():
     conn = psycopg2.connect( 
         database="Pharmacies-Chain", user='hello_flask', 
-        password='hello_flask', host='127.0.0.1', port= '5432')
+        password='hello_flask', host='Postgres', port= '5432')
     cursor = conn.cursor()
     
     medid = request.form.get('medicines')
@@ -593,7 +593,7 @@ def enterprescription():
 def drugs():
     conn = psycopg2.connect( 
         database="Pharmacies-Chain", user='hello_flask', 
-        password='hello_flask', host='127.0.0.1', port= '5432')
+        password='hello_flask', host='Postgres', port= '5432')
     cc = "Drugs Prescribed"
     cursor = conn.cursor() 
     try:
@@ -620,7 +620,7 @@ def drugs():
 def pharmacies():
     conn = psycopg2.connect( 
         database="Pharmacies-Chain", user='hello_flask', 
-        password='hello_flask', host='127.0.0.1', port= '5432')
+        password='hello_flask', host='Postgres', port= '5432')
     cc = "Pharmacies"
     cursor = conn.cursor() 
     try:
@@ -739,7 +739,7 @@ def select_patient():
 def select_location():
     conn = psycopg2.connect( 
         database="Pharmacies-Chain", user='hello_flask', 
-        password='hello_flask', host='127.0.0.1', port= '5432')
+        password='hello_flask', host='Postgres', port= '5432')
     cc = 'Nearby Pharmacies'
     locname = request.form.get('loc')
     
