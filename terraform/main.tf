@@ -1,7 +1,10 @@
 # Set up region
 provider "aws" {
   version = "~> 2.0"
-  region  = "us-east-1"
+  region  = "var.region"
+  #shared_credentials_file = "$HOME/.aws/credentials"
+  #access_key = var.access_key
+  #secret_key = var.secret_key
 }
 
 # Create ECR repository
